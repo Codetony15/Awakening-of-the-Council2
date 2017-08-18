@@ -1,7 +1,6 @@
 
 
 
-
 public class Awakening of The Council
 {
 
@@ -101,25 +100,12 @@ System.out.println("2. Return to main menu");
 int c2 = in.nextInt();
 
 if (c2 == 1) {
-
-//Highly doubt this will work, but it's worth a shot. 
-//Hoping that this will rewrite the save data in the file, I don't think it will. 
-PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
-    writer.println(lvl);
-    writer.println(xp);
-    writer.println(atk);
-    writer.println(def);
-    writer.println(spd);
-    writer.println(missionno);
-    writer.println(mgsanitylvl);
-    writer.close();
-
-System.out.println("Data Saved. Returning to Main Menu")
+savedata1();
 
 }
 
 
-public static int mission0 (){ 
+public static int mission0(){ 
 
 Scanner in = new Scanner(System.in);
 //finally starting the game for the player
@@ -237,7 +223,33 @@ System.out.println("Please restart the program to keep playing.");}}
 
 
 
+public static int savedata1() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+    writer.println(lvl);
+    writer.println(xp);
+    writer.println(atk);
+    writer.println(def);
+    writer.println(spd);
+    writer.println(missionno);
+    writer.println(mgsanitylvl);
+    writer.close();
+System.out.println("Save completed. Returning to main menu");
+in.nextInt();
+mainmenu();
+}
 
+public static int savedata() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+    writer.println(lvl);
+    writer.println(xp);
+    writer.println(atk);
+    writer.println(def);
+    writer.println(spd);
+    writer.println(missionno);
+    writer.println(mgsanitylvl);
+    writer.close();
+System.out.println("Save completed. Returning to main menu");
+in.nextInt();
+commandcentral();
+}
 
 
 
