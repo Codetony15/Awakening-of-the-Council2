@@ -7,6 +7,8 @@ public class Awakening of The Council
 
 public int lvl = 1; 
 public int xp = (level * 100);
+public int healthlim = 10;
+public int health = 10;
 public int atk = 1; 
 public int def = 1; 
 public int spd = 10; 
@@ -60,27 +62,29 @@ mgsanitylvl = Integer.parseInt(tmgsanitylvl);
 
 br.close();
 }else{
-System.out.println("This is an error handling message. I'll be scared if I see it.);}
+error();}
 
 mainmenu();}
 
-
+public static int error() {
+System.out.println("This is an error handling message. I'll be scared if I see it.");
+}
 
 
 public static int mainmenu() {
 //Main Menu code
 Scanner in = new Scanner(System.in); 
 
-System.out.println("Awakening of the Council") 
-System.out.println("Version #: 0.0.1)
+System.out.println("Awakening of the Council");
+System.out.println("Version #: 0.0.1);
 System.out.println("NOT A PUBLIC DEMO. DO NOT DISTRIBUTE");
 in.nextLine(); 
-System.out.println("             Main Menu")
+System.out.println("             Main Menu");
 in.nextLine();
 int c1 = in.nextInt(); 
 System.out.println("1. Play");
 System.out.println("2. Options");
-System.out.println("3. Quit")
+System.out.println("3. Quit");
 
 if (c1 == 1){
 //code for determining which mission to start the player in. 
@@ -88,10 +92,12 @@ if (missionno = 0){
 
 mission0(); 
 
-}else if{ 
+}else if (missionno >0){ 
+commandcentral();}else{
 
 System.out.println("This is a error handling message. I'll be scared if I see it.");
-}}else if (c1 == 2){
+}
+}else if (c1 == 2){
 //options menu code. I'll put more here later. 
 in.nextLine();
 in.nextLine(); 
@@ -205,6 +211,7 @@ System.out.println("347 stands in awe, all the computer screens glow to life,");
 System.out.println("347: What is this place?")
 in.nextLine();
 System.out.println("Calla: This is command central. The home to all our future operations. There's TONS of cool stuff here, Try playing around!);
+System.out.println("Calla: Let me know when your ready for your first mission");
 missionno = 1;
 
 commandcentral(); 
@@ -215,7 +222,9 @@ System.out.println("347 walks out the door, as Calla starts to cry");
 in.nextLine(); 
 
 System.out.println("Cogratulations! You got the Who do you take me for? ending! There are xx more to find!");
-System.out.println("Please restart the program to keep playing.");}}
+System.out.println("Please restart the program to keep playing.");}else{
+error();
+}
 
 
 
@@ -246,12 +255,22 @@ public static int savedata() {PrintWriter writer = new PrintWriter("savedata.txt
     writer.println(missionno);
     writer.println(mgsanitylvl);
     writer.close();
-System.out.println("Save completed. Returning to main menu");
+System.out.println("Save completed. Returning to Command Central.");
 in.nextInt();
 commandcentral();
 }
 
 
+public static int commandcentral(){
+//command central. The hub of the game. 
+System.out.println("------------------------------------------------");
+System.out.println("Welcome to Command Central");
+
+System.out.println("1.Talk to Calla");
+System.out.println("2.Check Mission log");
+System.out.println("3.Check collected intelligence");
+System.out.println("4.Check Stats");
+System.out.println("5.Check Inventory");
 
 
 
