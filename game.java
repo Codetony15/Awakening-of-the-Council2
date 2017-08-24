@@ -1,4 +1,9 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class game
@@ -27,7 +32,7 @@ public static int exolvl = 1;
 
 
 
-	public static void main (String[] args) 
+	public static void main (String[] args) throws IOException 
 	{
 //following code is for saving data, all will get saved in a file on the system, labeled as "Savedata.txt"
 
@@ -41,17 +46,24 @@ public static int exolvl = 1;
     writer.println(spd);
     writer.println(missionno);
     writer.println(mgsanitylvl);
+    writer.println(playersanitylvl);
+    writer.println(meleelvl);
+    writer.println(gunlvl);
+    writer.println(exolvl);
     writer.close();
 
-java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.FileInputStream(savedata.txt)));
-String tlvl = br.readLine(1);
-String txp = br.readLine(2);
-String tatk = br.readLine(3);
-String tdef = br.readLine(4);
-String tspd = br.readLine(5);
-String tmissionno = br.readLine(6);
-String tmgsanitylvl = br.readLine(7);
 
+String tlvl = Files.readAllLines(Paths.get("savedata.txt")).get(1);
+String txp = Files.readAllLines(Paths.get("savedata.txt")).get(2);
+String tatk = Files.readAllLines(Paths.get("savedata.txt")).get(3);
+String tdef = Files.readAllLines(Paths.get("savedata.txt")).get(4);
+String tspd = Files.readAllLines(Paths.get("savedata.txt")).get(5);
+String tmissionno = Files.readAllLines(Paths.get("savedata.txt")).get(6);
+String tmgsanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(7);
+String tplayersanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(8);
+String tmeleelvl = Files.readAllLines(Paths.get("savedata.txt")).get(9);
+String tgunlvl = Files.readAllLines(Paths.get("savedata.txt")).get(10);
+String texolvl = Files.readAllLines(Paths.get("savedata.txt")).get(11);
 
  lvl = Integer.parseInt(tlvl);
 
@@ -61,9 +73,13 @@ def = Integer.parseInt(tdef);
 spd = Integer.parseInt(tspd);
 missionno = Integer.parseInt(tmissionno); 
 mgsanitylvl = Integer.parseInt(tmgsanitylvl); 
+playersanitylvl = Integer.parseInt(tplayersanitylvl); 
+meleelvl = Integer.parseInt(tmeleelvl); 
+gunlvl = Integer.parseInt(tgunlvl); 
+exolvl = Integer.parseInt(texolvl); 
 
 mainmenu();
-br.close();
+
 }
 
 
@@ -74,7 +90,7 @@ System.out.println("This is an error handling message. I'll be scared if I see i
 }
 
 
-public static void mainmenu() {
+public static void mainmenu() throws FileNotFoundException, UnsupportedEncodingException {
 //Main Menu code
 Scanner in = new Scanner(System.in); 
 
@@ -238,7 +254,8 @@ error();}}
 
 
 
-public static void savedata1() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+public static void savedata1() throws FileNotFoundException, UnsupportedEncodingException {
+	PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
    Scanner in = new Scanner(System.in);
 writer.println(lvl);
     writer.println(xp);
@@ -247,13 +264,18 @@ writer.println(lvl);
     writer.println(spd);
     writer.println(missionno);
     writer.println(mgsanitylvl);
+    writer.println(playersanitylvl);
+    writer.println(meleelvl);
+    writer.println(gunlvl);
+    writer.println(exolvl);
     writer.close();
 System.out.println("Save completed. Returning to main menu");
 in.nextInt();
 mainmenu();
 }
 
-public static int savedata; {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+public static int savedata throws IOEexception; {
+	PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
     Scanner in = new Scanner(System.in);
 writer.println(lvl);
     writer.println(xp);
