@@ -15,6 +15,9 @@ public int spd = 10;
 public int missionno = 0; 
 public int mgsanitylvl = 100;
 public int playersanitylvl = 100; 
+public int meleelvl = 1;
+public int gunlvl = 1;
+public int exolvl = 1; 
 
 
 
@@ -153,7 +156,7 @@ System.out.println("???: Yeah, how else was I supposed to get you here?");
 in.nextLine(); 
 System.out.println("347: ... Step into the light.");
 in.nextLine(); 
-System.out.println("The shadowy figure steps out, her brown hair glistens in the sunlight, Her clothing plain. just a simple tank-top and loose fitting jeans."); 
+System.out.println("The shadowy figure steps out, her obsidian hair in the sunlight, Her clothing plain. just a simple tank-top and loose fitting jeans."); 
 in.nextLine(); 
 
 System.out.println("347: Seriously? You couldn't think of any other way to get me to your house?");
@@ -161,7 +164,7 @@ in.nextLine();
 System.out.println("???: What do you mean?");
 System.out.println("347: Have you looked in a mirror recently? All you had to do was whisper in my ear *I want your dick~!* That's it!"); 
 in.nextLine(); 
-System.out.println("???: Oh~! I didn't think of that! That would've saved me 20$...");
+System.out.println("???: Oh! I didn't think of that! That would've saved me 20$...");
 in.nextLine();
 System.out.println("...");
 in.nextLine(); 
@@ -178,7 +181,7 @@ System.out.println("Calla: Will you help me?");
 in.nextLine(); 
 System.out.println("------------------------------------------------");
 System.out.println("1. Sure, I fucking hate injustice.");
-System.out.println("2. Fuck no! You ROOFIED ME.");
+System.out.println("2. ...NO! You ROOFIED ME.");
 
 int c4 = in.nextInt(); 
  if (c4 == 1){
@@ -217,8 +220,8 @@ missionno = 1;
 commandcentral(); 
 }else if (c4 == 2){
 
-System.out.println("347: Fuck no! You ROOFIED ME! Later bitch!");
-System.out.println("347 walks out the door, as Calla starts to cry"); 
+System.out.println("347:...NO! You ROOFIED ME! Later bitch!");
+System.out.println("347 walks out the door."); 
 in.nextLine(); 
 
 System.out.println("Cogratulations! You got the Who do you take me for? ending! There are xx more to find!");
@@ -271,6 +274,50 @@ System.out.println("2.Check Mission log");
 System.out.println("3.Check collected intelligence");
 System.out.println("4.Check Stats");
 System.out.println("5.Check Inventory");
+int c7 = in.nextInt(); 
+if (c7 == 1){
+
+System.out.println("Calla: Ready to go?");
+System.out.println("------------------------------------------------");
+System.out.println("1. Yes");
+System.out.println("2. No"); 
+int c8 = in.nextInt();
+if (c8 == 1){
+if (missionno == 1){
+mission1();}else{
+error();}}else if (c8 == 2){
+}else{
+error();}
+}else if(c7 == 2){
+System.out.println("Checking mission log...");
+if (missionno == 1){
+System.out.println("Nothing. You haven't been on any missions.");
+in.nextLine(); 
+System.out.println("Returning to Command Central");
+commandcentral();}
+}else if (c7 == 3){
+System.out.println("Checking collected intelligence");
+in.nextLine();
+if (missionno == 1){
+
+System.out.println("No intel. I should go on a mission to find some.");
+System.out.println("Returning to Command Central");
+commandcentral();}
+}else if (c7 == 4){
+System.out.println("Checking stats");
+in.nextLine();
+System.out.println(lvl);
+    System.out.println(xp);
+    System.out.println(atk);
+    System.out.println(def);
+    System.out.println(spd);
+    
+  
+    
+
+}else if (c7 == 5){
+}else{
+error();}
 
 
 
