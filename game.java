@@ -1,24 +1,24 @@
+import java.io.PrintWriter;
+import java.util.Scanner;
 
-
-
-public class Awakening of The Council
+public class game
 {
 
 
-public int lvl = 1; 
-public int xp = (level * 100);
-public int healthlim = 10;
-public int health = 10;
-public int atk = 1; 
-public int def = 1; 
-public int spd = 10; 
-public int missionno = 0; 
-public int mgsanitylvl = 100;
-public int playersanitylvl = 100; 
-public int meleelvl = 1;
-public int gunlvl = 1;
-public int exolvl = 1; 
-
+public static int lvl = 1; 
+public static int xp = (lvl * 100);
+public static int healthlim = 10;
+public static int health = 10;
+public static int atk = 1; 
+public static int def = 1; 
+public static int spd = 10; 
+public static int missionno = 0; 
+public static int mgsanitylvl = 100;
+public static int playersanitylvl = 100; 
+public static int meleelvl = 1;
+public static int gunlvl = 1;
+public static int exolvl = 1; 
+ 
 
 
 
@@ -31,7 +31,7 @@ public int exolvl = 1;
 	{
 //following code is for saving data, all will get saved in a file on the system, labeled as "Savedata.txt"
 
-if (exists == false){ 
+
 
     PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
     writer.println(lvl);
@@ -42,18 +42,18 @@ if (exists == false){
     writer.println(missionno);
     writer.println(mgsanitylvl);
     writer.close();
-} else if (exists == true){
+
 java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.FileInputStream(savedata.txt)));
-string tlvl = br.readLine(1);
-string txp = br.readLine(2);
-string tatk = br.readLine(3);
-string tdef = br.readLine(4);
-string tspd = br.readLine(5);
-string tmissionno = br.readLine(6);
-string tmgsanitylvl = br.readLine(7);
+String tlvl = br.readLine(1);
+String txp = br.readLine(2);
+String tatk = br.readLine(3);
+String tdef = br.readLine(4);
+String tspd = br.readLine(5);
+String tmissionno = br.readLine(6);
+String tmgsanitylvl = br.readLine(7);
 
 
- lvl = Integer.parseInt(tvlvl);
+ lvl = Integer.parseInt(tlvl);
 
  xp = Integer.parseInt(txp);
 atk = Integer.parseInt(tatk);
@@ -62,24 +62,24 @@ spd = Integer.parseInt(tspd);
 missionno = Integer.parseInt(tmissionno); 
 mgsanitylvl = Integer.parseInt(tmgsanitylvl); 
 
-
+mainmenu();
 br.close();
-}else{
-error();}
-
-mainmenu();}
-
-public static int error() {
-System.out.println("This is an error handling message. I'll be scared if I see it.");
 }
 
 
-public static int mainmenu() {
+
+public static void error() {
+System.out.println("This is an error handling message. I'll be scared if I see it.");
+
+}
+
+
+public static void mainmenu() {
 //Main Menu code
 Scanner in = new Scanner(System.in); 
 
 System.out.println("Awakening of the Council");
-System.out.println("Version #: 0.0.1);
+System.out.println("Version #: 0.0.1");
 System.out.println("NOT A PUBLIC DEMO. DO NOT DISTRIBUTE");
 in.nextLine(); 
 System.out.println("             Main Menu");
@@ -91,7 +91,7 @@ System.out.println("3. Quit");
 
 if (c1 == 1){
 //code for determining which mission to start the player in. 
-if (missionno = 0){ 
+if (missionno == 0){ 
 
 mission0(); 
 
@@ -111,10 +111,12 @@ int c2 = in.nextInt();
 if (c2 == 1) {
 savedata1();
 
-}
+}else{
+	error();
+}}}
 
 
-public static int mission0(){ 
+public static void mission0(){ 
 
 Scanner in = new Scanner(System.in);
 //finally starting the game for the player
@@ -135,7 +137,7 @@ System.out.println("347 stands up");
 in.nextLine(); 
 System.out.println("------------------------------------------------");
 System.out.println("1.Step out the door");
-System.out.println("2. Check Stats")
+System.out.println("2. Check Stats");
 int c3 = in.nextInt(); 
 
 if (c3 == 1){
@@ -149,7 +151,7 @@ in.nextLine();
 System.out.println("???: Good, You're up."); 
 System.out.println("347 turns around, and stares at the shadow in the hallway.");
 in.nextLine();
-System.out.println("???: I was starting to worry I used too many roofies. Glad I didn't!")
+System.out.println("???: I was starting to worry I used too many roofies. Glad I didn't!");
 System.out.println("347: Roofies?"); 
 in.nextLine();
 System.out.println("???: Yeah, how else was I supposed to get you here?");
@@ -211,9 +213,9 @@ System.out.println("Calla: Welcome to the Resistance.");
 System.out.println("Panels and doors open to reveal monitors, maps and computer screens");
 in.nextLine(); 
 System.out.println("347 stands in awe, all the computer screens glow to life,");
-System.out.println("347: What is this place?")
+System.out.println("347: What is this place?");
 in.nextLine();
-System.out.println("Calla: This is command central. The home to all our future operations. There's TONS of cool stuff here, Try playing around!);
+System.out.println("Calla: This is command central. The home to all our future operations. There's TONS of cool stuff here, Try playing around!");
 System.out.println("Calla: Let me know when your ready for your first mission");
 missionno = 1;
 
@@ -226,7 +228,8 @@ in.nextLine();
 
 System.out.println("Cogratulations! You got the Who do you take me for? ending! There are xx more to find!");
 System.out.println("Please restart the program to keep playing.");}else{
-error();
+error();}}
+
 }
 
 
@@ -235,8 +238,9 @@ error();
 
 
 
-public static int savedata1() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
-    writer.println(lvl);
+public static void savedata1() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+   Scanner in = new Scanner(System.in);
+writer.println(lvl);
     writer.println(xp);
     writer.println(atk);
     writer.println(def);
@@ -249,8 +253,9 @@ in.nextInt();
 mainmenu();
 }
 
-public static int savedata() {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
-    writer.println(lvl);
+public static int savedata; {PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+    Scanner in = new Scanner(System.in);
+writer.println(lvl);
     writer.println(xp);
     writer.println(atk);
     writer.println(def);
@@ -266,6 +271,7 @@ commandcentral();
 
 public static int commandcentral(){
 //command central. The hub of the game. 
+	Scanner in = new Scanner(System.in);
 System.out.println("------------------------------------------------");
 System.out.println("Welcome to Command Central");
 
@@ -284,7 +290,8 @@ System.out.println("2. No");
 int c8 = in.nextInt();
 if (c8 == 1){
 if (missionno == 1){
-mission1();}else{
+mission1();
+}else{
 error();}}else if (c8 == 2){
 }else{
 error();}
