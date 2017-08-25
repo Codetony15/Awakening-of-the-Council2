@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,11 +36,12 @@ public static int exolvl = 1;
 
 	public static void main (String[] args) throws IOException 
 	{
+		boolean exists = false;
 //following code is for saving data, all will get saved in a file on the system, labeled as "Savedata.txt"
-File tmpDir = new File("/var/savedata.txt");
-boolean exists = tmpDir.exists();
+File tmpDir = new File("H:/Comp Sci A/apcsa");
+ exists = tmpDir.exists();
 
-if (exists = true){
+if (exists = false){
     PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
     writer.println(lvl);
     writer.println(xpneed);
@@ -54,10 +56,10 @@ if (exists = true){
     writer.println(gunlvl);
     writer.println(exolvl);
     writer.close();}
-else{
+else if (exists = true){
 
 String tlvl = Files.readAllLines(Paths.get("savedata.txt")).get(1);
-String txpneed = Files.readAllLines(Paths.get("savedata.txt)).get(2);
+String txpneed = Files.readAllLines(Paths.get("savedata.txt")).get(2);
 String txp = Files.readAllLines(Paths.get("savedata.txt")).get(3);
 String tatk = Files.readAllLines(Paths.get("savedata.txt")).get(4);
 String tdef = Files.readAllLines(Paths.get("savedata.txt")).get(5);
@@ -67,7 +69,7 @@ String tmgsanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(8);
 String tplayersanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(9);
 String tmeleelvl = Files.readAllLines(Paths.get("savedata.txt")).get(10);
 String tgunlvl = Files.readAllLines(Paths.get("savedata.txt")).get(11);
-String texolvl = Files.readAllLines(Paths.get("savedata.txt")).get(12);
+
 
  lvl = Integer.parseInt(tlvl);
 
@@ -80,7 +82,9 @@ mgsanitylvl = Integer.parseInt(tmgsanitylvl);
 playersanitylvl = Integer.parseInt(tplayersanitylvl); 
 meleelvl = Integer.parseInt(tmeleelvl); 
 gunlvl = Integer.parseInt(tgunlvl); 
-exolvl = Integer.parseInt(texolvl); }
+ }else{
+	error();
+}
 
 mainmenu();
 
@@ -104,10 +108,11 @@ System.out.println("NOT A PUBLIC DEMO. DO NOT DISTRIBUTE");
 in.nextLine(); 
 System.out.println("Main Menu");
 in.nextLine();
-int c1 = in.nextInt(); 
+
 System.out.println("1. Play");
 System.out.println("2. Options");
 System.out.println("3. Quit");
+int c1 = in.nextInt(); 
 
 if (c1 == 1){
 //code for determining which mission to start the player in. 
@@ -115,7 +120,7 @@ if (missionno == 0){
 
 mission0(); 
 
-}else if (missionno >0){ 
+}else if (missionno >= 1){ 
 commandcentral();}else{
 
 System.out.println("This is a error handling message. I'll be scared if I see it.");
@@ -281,8 +286,9 @@ in.nextInt();
 mainmenu();
 }
 
-public static int savedata throws IOEexception; {
+public static void savedata() throws FileNotFoundException, UnsupportedEncodingException {
 	PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
+	
     Scanner in = new Scanner(System.in);
 writer.println(lvl);
     writer.println(xpneed);
@@ -304,7 +310,7 @@ commandcentral();
 }
 
 
-public static int commandcentral(){
+public static void commandcentral(){
 //command central. The hub of the game. 
 	Scanner in = new Scanner(System.in);
 System.out.println("------------------------------------------------");
@@ -350,13 +356,13 @@ System.out.println("No intel. I should go on a mission to find some.");}
 System.out.println("Returning to Command Central");
 in.nextLine(); 
 commandcentral();}
-}else if (c7 == 4){
+else if (c7 == 4){
 System.out.println("Checking stats");
 in.nextLine();
 System.out.println("My Level is: " +lvl);
 in.nextLine();
     System.out.println("I have " +xp +" xp. I need "+xpneed+" xp to level up.");
-in.nextLine
+in.nextLine();
     System.out.println("My Attack power is: "+atk);
 in.nextLine();
     System.out.println("My Defence is: " +def);
@@ -386,12 +392,14 @@ error();
 }
 if (meleelvl == 1){
 }else{
-error();} else if (c12 == 2){
+error();}} else if (c12 == 2){
 System.out.println("Placeholder for items.");  
 }else{
-error();}
+error();}}}
 
-
+public static void mission1(){
+	System.out.println("Placeholder");
+} 
 
 
 
@@ -405,5 +413,5 @@ error();}
 
 
 		
-	}
+	
 }
