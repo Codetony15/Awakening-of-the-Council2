@@ -11,7 +11,8 @@ public class game
 
 
 public static int lvl = 1; 
-public static int xp = (lvl * 100);
+public static int xpneed = (lvl * 100);
+public static int xp = 0; 
 public static int healthlim = 10;
 public static int health = 10;
 public static int atk = 1; 
@@ -35,11 +36,13 @@ public static int exolvl = 1;
 	public static void main (String[] args) throws IOException 
 	{
 //following code is for saving data, all will get saved in a file on the system, labeled as "Savedata.txt"
+File tmpDir = new File("/var/savedata.txt");
+boolean exists = tmpDir.exists();
 
-
-
+if (exists = true){
     PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
     writer.println(lvl);
+    writer.println(xpneed);
     writer.println(xp);
     writer.println(atk);
     writer.println(def);
@@ -50,20 +53,21 @@ public static int exolvl = 1;
     writer.println(meleelvl);
     writer.println(gunlvl);
     writer.println(exolvl);
-    writer.close();
-
+    writer.close();}
+else{
 
 String tlvl = Files.readAllLines(Paths.get("savedata.txt")).get(1);
-String txp = Files.readAllLines(Paths.get("savedata.txt")).get(2);
-String tatk = Files.readAllLines(Paths.get("savedata.txt")).get(3);
-String tdef = Files.readAllLines(Paths.get("savedata.txt")).get(4);
-String tspd = Files.readAllLines(Paths.get("savedata.txt")).get(5);
-String tmissionno = Files.readAllLines(Paths.get("savedata.txt")).get(6);
-String tmgsanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(7);
-String tplayersanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(8);
-String tmeleelvl = Files.readAllLines(Paths.get("savedata.txt")).get(9);
-String tgunlvl = Files.readAllLines(Paths.get("savedata.txt")).get(10);
-String texolvl = Files.readAllLines(Paths.get("savedata.txt")).get(11);
+String txpneed = Files.readAllLines(Paths.get("savedata.txt)).get(2);
+String txp = Files.readAllLines(Paths.get("savedata.txt")).get(3);
+String tatk = Files.readAllLines(Paths.get("savedata.txt")).get(4);
+String tdef = Files.readAllLines(Paths.get("savedata.txt")).get(5);
+String tspd = Files.readAllLines(Paths.get("savedata.txt")).get(6);
+String tmissionno = Files.readAllLines(Paths.get("savedata.txt")).get(7);
+String tmgsanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(8);
+String tplayersanitylvl = Files.readAllLines(Paths.get("savedata.txt")).get(9);
+String tmeleelvl = Files.readAllLines(Paths.get("savedata.txt")).get(10);
+String tgunlvl = Files.readAllLines(Paths.get("savedata.txt")).get(11);
+String texolvl = Files.readAllLines(Paths.get("savedata.txt")).get(12);
 
  lvl = Integer.parseInt(tlvl);
 
@@ -76,7 +80,7 @@ mgsanitylvl = Integer.parseInt(tmgsanitylvl);
 playersanitylvl = Integer.parseInt(tplayersanitylvl); 
 meleelvl = Integer.parseInt(tmeleelvl); 
 gunlvl = Integer.parseInt(tgunlvl); 
-exolvl = Integer.parseInt(texolvl); 
+exolvl = Integer.parseInt(texolvl); }
 
 mainmenu();
 
@@ -98,7 +102,7 @@ System.out.println("Awakening of the Council");
 System.out.println("Version #: 0.0.1");
 System.out.println("NOT A PUBLIC DEMO. DO NOT DISTRIBUTE");
 in.nextLine(); 
-System.out.println("             Main Menu");
+System.out.println("Main Menu");
 in.nextLine();
 int c1 = in.nextInt(); 
 System.out.println("1. Play");
@@ -127,6 +131,8 @@ int c2 = in.nextInt();
 if (c2 == 1) {
 savedata1();
 
+}else if (c2 == 2){
+mainmenu();
 }else{
 	error();
 }}}
@@ -257,7 +263,8 @@ error();}}
 public static void savedata1() throws FileNotFoundException, UnsupportedEncodingException {
 	PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
    Scanner in = new Scanner(System.in);
-writer.println(lvl);
+    writer.println(lvl);
+    writer.println(xpneed);
     writer.println(xp);
     writer.println(atk);
     writer.println(def);
@@ -278,12 +285,18 @@ public static int savedata throws IOEexception; {
 	PrintWriter writer = new PrintWriter("savedata.txt", "UTF-8");
     Scanner in = new Scanner(System.in);
 writer.println(lvl);
+    writer.println(xpneed);
+   
     writer.println(xp);
     writer.println(atk);
     writer.println(def);
     writer.println(spd);
     writer.println(missionno);
     writer.println(mgsanitylvl);
+    writer.println(playersanitylvl);
+    writer.println(meleelvl);
+    writer.println(gunlvl);
+    writer.println(exolvl); 
     writer.close();
 System.out.println("Save completed. Returning to Command Central.");
 in.nextInt();
@@ -314,7 +327,11 @@ if (c8 == 1){
 if (missionno == 1){
 mission1();
 }else{
-error();}}else if (c8 == 2){
+error();}
+}else if (c8 == 2){
+System.out.println("Calla: Okay! Let me know when you are ready to go!");
+in.nextLine(); 
+commandcentral(); 
 }else{
 error();}
 }else if(c7 == 2){
@@ -329,22 +346,48 @@ System.out.println("Checking collected intelligence");
 in.nextLine();
 if (missionno == 1){
 
-System.out.println("No intel. I should go on a mission to find some.");
+System.out.println("No intel. I should go on a mission to find some.");}
 System.out.println("Returning to Command Central");
+in.nextLine(); 
 commandcentral();}
 }else if (c7 == 4){
 System.out.println("Checking stats");
 in.nextLine();
-System.out.println(lvl);
-    System.out.println(xp);
-    System.out.println(atk);
-    System.out.println(def);
-    System.out.println(spd);
+System.out.println("My Level is: " +lvl);
+in.nextLine();
+    System.out.println("I have " +xp +" xp. I need "+xpneed+" xp to level up.");
+in.nextLine
+    System.out.println("My Attack power is: "+atk);
+in.nextLine();
+    System.out.println("My Defence is: " +def);
+in.nextLine();
+    System.out.println("My Speed is: "+spd);
+    in.nextLine();
+    System.out.println("Returning to command central");
+    in.nextLine(); 
+    commandcentral(); 
     
   
     
 
 }else if (c7 == 5){
+System.out.println("1. Key items");
+System.out.println("2. Regular Items");
+int c12 = in.nextInt();
+if (c12 == 1){
+if (exolvl == 1){
+System.out.println("1. Rusty Exoskeleton");
+}else{
+error(); }
+if (gunlvl == 1){
+System.out.println("2. Old Pistol");
+}else{
+error(); 
+}
+if (meleelvl == 1){
+}else{
+error();} else if (c12 == 2){
+System.out.println("Placeholder for items.");  
 }else{
 error();}
 
