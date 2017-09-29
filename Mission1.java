@@ -41,7 +41,7 @@ public class Mission1 {
 		g.drawString("only to hear alarms start going off", 25, 140);
 		g.drawString("Guard: Unknow person on premises! TAKE HIM OUT! ", 25, 160);
 		g.drawString("347 begins being shot at in all directions.", 25, 170);
-		g.drawString("347(Running): Sh*%, Sh*%, Sh*% ", 25, 170);
+		g.drawString("347(Running): Synonym for excriment,  Synonym for excriment, Synonym for excriment, ", 25, 170);
 		g.drawString("347 gets behind a tower, with a machine gunner on top.", 25, 170);
 		
 		//Climb up or stay?
@@ -50,12 +50,12 @@ public class Mission1 {
 		g.drawString("347 climbs on top of the tower", 25, 170);
 		g.drawString("Guard: What the?", 25, 170);
 		g.drawString("347: Listen, I don't want to hurt you. ", 25, 170);
-		g.drawString("Guard: BullSh*%!", 25, 170);
+		g.drawString("Guard: BullSynonym for excriment!", 25, 170);
 		g.drawString("The Guard pulls out a gun", 25, 170);
 		
 		//convince him to drop the gun? or chuck his ass off the tower? 
 		// if chuck
-		g.drawString("347 throws his ass off the tower.", 25, 170);
+		g.drawString("347 chucks his ass off the tower.", 25, 170);
 		g.drawString("347: One problem solved, 5999 to go. ", 25, 170);
 		g.drawString("347 looks at the Machine Gun", 25, 170);
 		g.drawString("347: I shouldn't", 25, 80);
@@ -70,19 +70,40 @@ public class Mission1 {
 		g.drawString("347 sprints back to the machine gun ", 25, 140);
 		//play it feels good
 		g.drawString("347 begins firing", 25, 160);
-		g.drawString("347: Who's a coward now? Huh? Huh?", 25, 170);
-		g.drawString("347 starts manically laughing. ", 25, 170);
-		g.drawString("347 runs out of targets.", 25, 170);
+		g.drawString("347: RUN! RUN COWARDS!", 25, 170);
+		g.drawString("YOU ARE ALL SO SMALL! IT'S FUNNY TO ME! ", 25, 110);
+		g.drawString("347 stops firing", 25, 130);
+		g.drawString("347: Heh, And that's why i'm not a coward. ", 25, 140);
 		//end it feels good
-		g.drawString("347: Heh heh heh, that's what I thought.", 25, 80);
 		g.drawString("347 climbs down", 25, 100);
 		g.drawString("347: Almost every problem down, 1 to go.", 25, 110);
-		g.drawString("347 walks to the main building ", 25, 130);
-		g.drawString("only to hear alarms start going off", 25, 140);
-		g.drawString("Guard: Unknow person on premises! TAKE HIM OUT! ", 25, 160);
-		g.drawString("347 begins being shot at in all directions.", 25, 170);
-		g.drawString("347(Running): Sh*%, Sh*%, Sh*% ", 25, 170);
+		g.drawString("347 reaches the main building,", 25, 140);
+		
+		g.drawString("347: Where to go... ", 25, 160);
+		//Grapple up the building? Or go inside?
+		//if inside 
+		g.drawString("Ma", 25, 170);
+		g.drawString(" ", 25, 170);
 		g.drawString("347 gets behind a tower, with a machine gunner on top.", 25, 170);
+		
+		
+		
+		//if stay
+		g.drawString("347: It'll be better if I run.", 25, 170);
+		g.drawString("347 starts running through the grounds, avoiding fire at all sides.", 25, 170);
+		
+		// 1 in 2 chance
+		
+		//if fail
+		g.drawString("Suddenly, a portal opens in front of 347.", 25, 170);
+		g.drawString("He ran through it.", 25, 170);
+		//play fail music
+		g.drawString("You've been arrested for domestic terrorism.", 25, 170);
+		g.drawString("Your sentence is life in prison.", 25, 170);
+		g.drawString("Heil the Council!", 25, 170);
+		g.drawString("Game Over!", 25, 170);
+		
+		//if succeed
 		
 		
 		
