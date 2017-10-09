@@ -19,10 +19,12 @@ public class Quiz extends JComponent implements MouseListener {
 	public static int choice = 0;
 	public static int checkpoint = 0; 
 	 public static Random rand = new Random();
-	 public static int screen = 0; 
+	 public static int screen = 0;
+	 public int fail = 0; 
 	
 	public int[] answers= new int[12] ;
 	public static String nameOfApp = "Super Happy Fun Quiz!";
+	
 	
 	
 	public Quiz() {
@@ -31,7 +33,15 @@ public class Quiz extends JComponent implements MouseListener {
 	}
 	
 	public void paint(Graphics g) {
-		
+		int ans = rand.nextInt(2) ;
+		for(int i = 0; i < answers.length; i++){
+			answers[i] = 0; /*GPAConditional is the constant conversion factor used to convert grades into GPA, ultimately defined by you*/ 
+			}
+
+		if (fail == 1) {
+			checkpoint = 0; 
+			screen = 0;
+		}
 			
 		
 		if (checkpoint == 0) {
@@ -41,7 +51,7 @@ public class Quiz extends JComponent implements MouseListener {
 				answers[1] = 0;
 			
 				q2(g);
-			}else if (screen == 2) {int ans = rand.nextInt(1);
+			}else if (screen == 2) {
 				if ( ans == 1) {
 					answers[1] = 1;
 				
@@ -57,7 +67,7 @@ public class Quiz extends JComponent implements MouseListener {
 			
 				q3(g);
 			}else if (screen == 2) {
-				int ans = rand.nextInt(1);
+				
 				if ( ans == 1) {
 					answers[2] = 1;
 				
@@ -71,7 +81,7 @@ public class Quiz extends JComponent implements MouseListener {
 				answers[3] = 0;
 			
 				q4(g);
-			}else if (screen == 2) {int ans = rand.nextInt(1);
+			}else if (screen == 2) {
 				if ( ans == 1) {
 					answers[3] = 1;
 				
@@ -85,7 +95,7 @@ public class Quiz extends JComponent implements MouseListener {
 				answers[1] = 0;
 			
 				q5(g);
-			}else if (screen == 2) {int ans = rand.nextInt(1);
+			}else if (screen == 2) {
 				if ( ans == 1) {
 					answers[1] = 1;
 				
@@ -96,7 +106,7 @@ public class Quiz extends JComponent implements MouseListener {
 				if (screen == 0) {
 					q5(g); 
 				}else if (screen == 1) {
-					int ans = rand.nextInt(1);
+					
 				
 					if ( ans == 1) {
 						answers[1] = 1;
@@ -104,13 +114,13 @@ public class Quiz extends JComponent implements MouseListener {
 						q6(g);
 					}else {
 					inferiorwaifu(g); }
-				}else if (screen == 2) {int ans = rand.nextInt(1);
+				}else if (screen == 2) {
 					answers [5] = 0; 
 							q6(g); }}}
 			else if (checkpoint == 5) {
 				
 			}
-				
+				System.out.print(ans);
 			}
 			
 		
@@ -153,6 +163,7 @@ public class Quiz extends JComponent implements MouseListener {
 	}
 
 		private void inferiorwaifu(Graphics g) {
+			fail = 1;
 			g.setColor(Color.white);
 			g.fillRect(20, 30, 300, 400);
 			
@@ -163,6 +174,7 @@ public class Quiz extends JComponent implements MouseListener {
 	}
 
 		private void Wrong(Graphics g) {
+			fail = 1;
 			g.setColor(Color.white);
 			g.fillRect(20, 30, 300, 400);
 			
@@ -242,6 +254,7 @@ public class Quiz extends JComponent implements MouseListener {
 			return;
 		}
 	public void q1(Graphics g) {
+		fail = 0; 
 		g.setColor(Color.white);
 		g.fillRect(20, 30, 300, 400);
 		
@@ -301,26 +314,23 @@ public class Quiz extends JComponent implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
 		int x = e.getX();
 		int y = e.getY();
 		
 		
-			
-			
-			
-		 if (x < 524 && x >375 && y <423 && y > 374){
+		 if(x < 524 && x >375 && y <423 && y > 374){
 			screen = 1; 
 			
 		}else if (x > 574 && x <725 && y <423 && y > 374){
 			screen = 2; 
 			
 		}
+		
 		repaint(); 
-		
+	
 		System.out.println( x + " " + y);
-		
 	}
+	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
