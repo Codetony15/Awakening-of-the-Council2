@@ -101,7 +101,7 @@ public class Quiz extends JComponent implements MouseListener {
 				
 					q5(g);
 				}else {
-				Wrong(g); }}
+				Wrong(g); }}}
 			else if (checkpoint == 4) {
 				if (screen == 0) {
 					q5(g); 
@@ -111,17 +111,14 @@ public class Quiz extends JComponent implements MouseListener {
 					if ( ans == 1) {
 						answers[1] = 1;
 					
-						q6(g);
+						
+						results(g); 
 					}else {
 					inferiorwaifu(g); }
 				}else if (screen == 2) {
 					answers [5] = 0; 
-							q6(g); }}}
-			else if (checkpoint == 5) {
-				
-			}
-				System.out.print(ans);
-			}
+							results(g); }}}
+		
 			
 		
 			
@@ -311,6 +308,55 @@ public class Quiz extends JComponent implements MouseListener {
 		
 		
 	}
+	public void results(Graphics g){
+		choiceno = 1; 
+		
+		
+		checkpoint = 5;
+		choice = 0; 
+		
+		 
+		g.setColor(Color.white);
+		g.fillRect(20, 30, 300, 400);
+		
+			g.fillRect(375, 375, 150, 50);
+			
+		g.setColor(Color.black);
+		
+		
+		
+		if (answers[1] == 1) {
+			g.drawString("Answer: Right. Response: You people got Trump elected. Ew ", 25, 50); }
+			else{
+				g.drawString("Answer: Left. Response: Hilldog for the win!", 25, 50);
+				
+			}if (answers[2] == 1) {
+			
+			g.drawString("Answer: Up. Response: The heavens should be left to a supreme deity.", 25, 65);
+			}else{ 
+				g.drawString("Answer:Down. Response: Welcome to H*((.", 25, 65);	
+			}
+			 if (answers[3] == 1) {
+			g.drawString("Answer: Marie. Response: How can you possibly like her? She looks like a 50 y/o!", 25, 80);}
+			else{
+				g.drawString("Answer: Callie. Response: Superior Waifu. Good job", 25, 80);	
+			}if (answers[4] == 1) {
+			g.drawString("Answer: PS4. Response: Games are supposed to be fun first. Graphics come after fun. ", 25, 95);}
+			else{g.drawString("Answer: Switch. Response: Only Nintendo could pull something like this off. good choice. ", 25, 95);
+				
+			}
+				if (answers[5] == 1) {
+			g.drawString("Answer: Pearl. Response: 1 word. FOREHEAD.", 25, 110);}
+				else{
+					g.drawString("Answer: Marina. Response: (insert innuendo here.)", 25, 110);
+				}
+				g.drawString("Score: NO LAIFU.", 25, 125);
+	    
+		
+		
+		
+		
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -328,7 +374,7 @@ public class Quiz extends JComponent implements MouseListener {
 		
 		repaint(); 
 	
-		System.out.println( x + " " + y);
+		System.out.println( x + " " + y + " "+ checkpoint);
 	}
 	
 
